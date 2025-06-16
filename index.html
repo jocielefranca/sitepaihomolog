@@ -234,8 +234,8 @@
         }
         
         .book-cover-small {
-            width: 120px;
-            height: 180px;
+            width: 180px;
+            height: 260px;
             margin: 0 auto 20px;
             border-radius: 8px;
             overflow: hidden;
@@ -440,6 +440,7 @@
             margin: 0 15px;
             text-decoration: none;
             transition: color 0.3s ease;
+            cursor: pointer;
         }
         
         .footer-nav a:hover {
@@ -457,12 +458,12 @@
 <body>
     <div class="gradient-bg">
         <div class="container">
-            <header>
+            <header id="inicio">
                 <h1>JOSÉ FRANÇA</h1>
                 <p>Autor de "O Menino Que Via As Mulheres"</p>
             </header>
             
-            <section class="hero">
+            <section class="hero" id="sobre-livro">
                 <div class="hero-content">
                     <h2>O Menino Que Via As Mulheres</h2>
                     <p>Uma jornada extraordinária através dos olhos de um menino que possui um dom único: a capacidade de enxergar além das aparências e ver a verdadeira essência das mulheres que cruzam seu caminho.</p>
@@ -533,7 +534,7 @@
             </div>
         </section>
         
-        <section class="author">
+        <section class="author" id="sobre-autor">
             <div class="container">
                 <div class="author-image">
                     <img src="autor1.jpeg"alt="José França">
@@ -586,7 +587,7 @@
             </div>
         </section>
         
-        <footer>
+        <footer id="contato">
             <div class="container">
                 <div class="social-links">
                     <a href="https://www.facebook.com/COLOQUE_SEU_FACEBOOK_AQUI" target="_blank" class="social-link"><i class="fab fa-facebook-f"></i></a>
@@ -594,14 +595,26 @@
                     <a href="https://wa.me/5531995370162" target="_blank" class="social-link"><i class="fab fa-whatsapp"></i></a>
                 </div>
                 <div class="footer-nav">
-                    <a href="#">Início</a>
-                    <a href="#">Sobre o Livro</a>
-                    <a href="#">Sobre o Autor</a>
-                    <a href="#">Contato</a>
+                    <a onclick="scrollToSection('inicio')">Início</a>
+                    <a onclick="scrollToSection('sobre-livro')">Sobre o Livro</a>
+                    <a onclick="scrollToSection('sobre-autor')">Sobre o Autor</a>
+                    <a onclick="scrollToSection('contato')">Contato</a>
                 </div>
                 <p class="copyright">© 2025 José França - Todos os direitos reservados</p>
             </div>
         </footer>
     </div>
+
+    <script>
+        function scrollToSection(sectionId) {
+            const element = document.getElementById(sectionId);
+            if (element) {
+                element.scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        }
+    </script>
 </body>
 </html>
