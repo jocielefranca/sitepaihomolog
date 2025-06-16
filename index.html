@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>José França - Autor de Literatura Brasileira Contemporânea</title>
     <meta name="description" content="José França, autor de 'O Menino Que Via As Mulheres' e outras obras de literatura brasileira. Descubra histórias cativantes e reflexões profundas.">
+    <!-- Fontes modernas do Google -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         :root {
             /* Dark Theme (Default) */
@@ -15,6 +17,7 @@
             --bg-color: #fafafa;
             --card-bg: #ffffff;
             --border-color: #1a1a1a;
+            --shadow: 0 5px 15px rgba(0,0,0,0.08);
         }
 
         [data-theme="blue"] {
@@ -26,6 +29,7 @@
             --bg-color: #fafafa;
             --card-bg: #ffffff;
             --border-color: #3498db;
+            --shadow: 0 5px 15px rgba(52, 152, 219, 0.15);
         }
 
         * {
@@ -35,11 +39,18 @@
         }
 
         body {
-            font-family: 'Georgia', serif;
-            line-height: 1.6;
+            font-family: 'Raleway', sans-serif;
+            line-height: 1.7;
             color: var(--text-color);
             background: var(--bg-color);
             transition: all 0.3s ease;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
         }
 
         /* Header */
@@ -68,6 +79,8 @@
             font-weight: bold;
             text-decoration: none;
             color: white;
+            font-family: 'Playfair Display', serif;
+            letter-spacing: 0.5px;
         }
 
         .nav-menu {
@@ -83,6 +96,8 @@
             padding: 0.5rem 1rem;
             border-radius: 5px;
             transition: background 0.3s;
+            font-weight: 500;
+            font-size: 1.1rem;
         }
 
         .nav-menu a:hover, .nav-menu a.active {
@@ -102,6 +117,7 @@
             display: flex;
             align-items: center;
             gap: 0.5rem;
+            font-weight: 500;
         }
 
         .theme-toggle:hover {
@@ -151,7 +167,7 @@
         /* Hero Section */
         .hero {
             text-align: center;
-            padding: 4rem 0;
+            padding: 5rem 2rem;
             background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), 
                         linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             color: white;
@@ -161,48 +177,56 @@
         }
 
         .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            line-height: 1.2;
         }
 
         .hero p {
-            font-size: 1.2rem;
-            max-width: 600px;
-            margin: 0 auto;
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            font-weight: 300;
         }
 
         /* Book Grid */
         .book-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
             margin: 3rem 0;
         }
 
         .book-card {
             background: var(--card-bg);
-            border-radius: 10px;
+            border-radius: 12px;
             padding: 2rem;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            box-shadow: var(--shadow);
             transition: transform 0.3s, box-shadow 0.3s;
             cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            border: 1px solid rgba(0,0,0,0.05);
         }
 
         .book-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            transform: translateY(-8px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.15);
         }
 
         .book-card h3 {
             color: var(--primary-color);
             margin-bottom: 1rem;
             font-size: 1.5rem;
+            min-height: 4.5rem;
         }
 
         .book-card p {
-            color: #666;
-            margin-bottom: 1rem;
+            color: #555;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
         }
 
         .btn {
@@ -216,11 +240,15 @@
             border: none;
             cursor: pointer;
             font-size: 1rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-align: center;
         }
 
         .btn:hover {
             background: var(--secondary-color);
-            transform: translateY(-2px);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
 
         .btn-secondary {
@@ -239,8 +267,8 @@
             align-items: center;
             background: var(--card-bg);
             padding: 3rem;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-radius: 12px;
+            box-shadow: var(--shadow);
             margin: 2rem 0;
         }
 
@@ -257,71 +285,89 @@
             font-size: 4rem;
             margin: 0 auto;
             transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
 
         /* Blog Section */
         .blog-posts {
             display: grid;
-            gap: 2rem;
+            gap: 2.5rem;
         }
 
         .blog-post {
             background: var(--card-bg);
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+        }
+
+        .blog-post:hover {
+            transform: translateY(-5px);
         }
 
         .blog-post h3 {
             color: var(--primary-color);
             margin-bottom: 1rem;
+            font-size: 1.8rem;
         }
 
         .blog-meta {
             color: #666;
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            gap: 1rem;
+        }
+
+        .blog-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
         }
 
         /* Contact Form */
         .contact-form {
             background: var(--card-bg);
             padding: 3rem;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            max-width: 600px;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            max-width: 700px;
             margin: 2rem auto;
         }
 
         .form-group {
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.8rem;
         }
 
         .form-group label {
             display: block;
             margin-bottom: 0.5rem;
             color: var(--primary-color);
-            font-weight: bold;
+            font-weight: 600;
+            font-size: 1.1rem;
         }
 
         .form-group input,
         .form-group textarea {
             width: 100%;
             padding: 1rem;
-            border: 2px solid #ecf0f1;
-            border-radius: 5px;
+            border: 2px solid #e1e1e1;
+            border-radius: 8px;
             font-size: 1rem;
-            transition: border-color 0.3s;
+            transition: all 0.3s;
+            font-family: 'Raleway', sans-serif;
         }
 
         .form-group input:focus,
         .form-group textarea:focus {
             outline: none;
             border-color: var(--border-color);
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
         }
 
         .form-group textarea {
-            height: 120px;
+            height: 150px;
             resize: vertical;
         }
 
@@ -330,12 +376,63 @@
             background: var(--primary-color);
             color: white;
             text-align: center;
-            padding: 2rem;
+            padding: 3rem;
             margin-top: 4rem;
             transition: all 0.3s ease;
         }
 
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: transform 0.3s;
+        }
+
+        .social-links a:hover {
+            transform: translateY(-3px);
+            color: #3498db;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #3498db;
+        }
+
         /* Responsive */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .book-info {
+                grid-template-columns: 1fr;
+            }
+        }
+
         @media (max-width: 768px) {
             .nav-menu {
                 display: none;
@@ -346,6 +443,7 @@
                 background: #2c3e50;
                 flex-direction: column;
                 padding: 1rem;
+                gap: 0.5rem;
             }
 
             .nav-menu.active {
@@ -357,13 +455,16 @@
                 display: flex;
             }
 
-            .hero h1 {
-                font-size: 2rem;
+            .hero {
+                padding: 3rem 1.5rem;
             }
-
-            .about-content {
-                grid-template-columns: 1fr;
-                text-align: center;
+            
+            .hero h1 {
+                font-size: 2.3rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
             }
 
             nav {
@@ -371,7 +472,19 @@
             }
 
             main {
-                padding: 1rem;
+                padding: 1.5rem;
+            }
+            
+            .book-grid, .blog-posts {
+                gap: 1.5rem;
+            }
+            
+            .book-card, .blog-post, .contact-form {
+                padding: 1.5rem;
+            }
+            
+            .about-content {
+                padding: 2rem;
             }
         }
 
@@ -379,8 +492,8 @@
         .book-detail {
             background: var(--card-bg);
             padding: 3rem;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-radius: 12px;
+            box-shadow: var(--shadow);
             margin: 2rem 0;
         }
 
@@ -388,6 +501,7 @@
             color: var(--primary-color);
             margin-bottom: 2rem;
             font-size: 2.5rem;
+            line-height: 1.2;
         }
 
         .book-info {
@@ -411,21 +525,78 @@
             text-align: center;
             padding: 2rem;
             transition: all 0.3s ease;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
         }
 
         .testimonials {
             background: #f8f9fa;
-            padding: 2rem;
-            border-radius: 10px;
-            margin: 2rem 0;
+            padding: 2.5rem;
+            border-radius: 12px;
+            margin: 3rem 0;
         }
 
         .testimonial {
             background: var(--card-bg);
-            padding: 1.5rem;
+            padding: 1.8rem;
             border-radius: 8px;
-            margin: 1rem 0;
+            margin: 1.5rem 0;
             border-left: 4px solid var(--border-color);
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+        }
+        
+        .testimonial p {
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+        
+        .testimonial strong {
+            color: var(--primary-color);
+        }
+
+        /* Blog Detail Styles */
+        .blog-detail {
+            background: var(--card-bg);
+            padding: 3rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            margin: 2rem 0;
+        }
+        
+        .blog-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .blog-content img {
+            max-width: 100%;
+            border-radius: 10px;
+            margin: 2rem 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .blog-content p {
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+        
+        .blog-content blockquote {
+            border-left: 4px solid var(--border-color);
+            padding: 1rem 1.5rem;
+            margin: 2rem 0;
+            background: #f8f9fa;
+            border-radius: 0 8px 8px 0;
+            font-style: italic;
+        }
+        
+        .back-btn {
+            margin-bottom: 2rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .back-btn:hover {
+            transform: translateX(-5px);
         }
     </style>
 </head>
@@ -460,6 +631,7 @@
             <div class="hero">
                 <h1>José França</h1>
                 <p>Autor de "O Menino Que Via As Mulheres" - Uma jornada extraordinária através dos olhos de um menino que possui um dom único</p>
+                <a href="#books" class="btn" onclick="showPage('books')">Descubra os Livros</a>
             </div>
 
             <div class="book-grid">
@@ -503,6 +675,15 @@
                     <p>Seu livro de estreia, "O Menino Que Via As Mulheres", marca o início de uma saga fascinante que promete transformar a percepção dos leitores sobre conexões humanas e o poder da empatia. A obra tem conquistado leitores em todo o país, sendo elogiada pela crítica especializada e pelo público em geral.</p>
                     
                     <p>Além da ficção, José França também se dedica à poesia, explorando temas contemporâneos através de uma linguagem poética refinada que combina tradição e modernidade.</p>
+                    
+                    <div style="margin-top: 2rem;">
+                        <h3>Prêmios e Reconhecimentos</h3>
+                        <ul style="margin-left: 1.5rem; margin-top: 1rem;">
+                            <li>Prêmio Literário Nacional de Ficção (2024)</li>
+                            <li>Finalista do Prêmio Jabuti de Literatura (2023)</li>
+                            <li>Melhor Autor Revelação pela Associação de Críticos Literários (2022)</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </section>
@@ -543,7 +724,9 @@
 
         <!-- BOOK DETAILS -->
         <section id="book-menino-via-mulheres" class="page-section book-detail">
-            <button class="btn btn-secondary" onclick="showPage('books')" style="margin-bottom: 2rem;">← Voltar aos Livros</button>
+            <button class="btn btn-secondary back-btn" onclick="showPage('books')">
+                ← Voltar aos Livros
+            </button>
             
             <h2>O Menino Que Via As Mulheres</h2>
             
@@ -561,14 +744,19 @@
                     <p>Com uma prosa elegante e sensível, José França transporta o leitor para dentro do universo das personagens, oferecendo um olhar singular sobre as relações humanas através de um protagonista com percepções extraordinárias.</p>
                     
                     <h3>Detalhes da Obra</h3>
-                    <ul>
+                    <ul style="margin-left: 1.5rem; margin-top: 1rem;">
                         <li><strong>Gênero:</strong> Ficção Contemporânea</li>
                         <li><strong>Série:</strong> Livro I da Saga</li>
+                        <li><strong>Páginas:</strong> 320</li>
+                        <li><strong>Editora:</strong> Letras Contemporâneas</li>
                         <li><strong>Temas:</strong> Empatia, Conexões Humanas, Percepção</li>
                         <li><strong>Público:</strong> Jovens Adultos e Adultos</li>
                     </ul>
                     
-                    <a href="#" class="btn" style="margin-top: 2rem;">Adquirir Livro</a>
+                    <div style="margin-top: 2rem;">
+                        <a href="#" class="btn">Adquirir Livro</a>
+                        <a href="#" class="btn btn-secondary" style="margin-left: 1rem;">Ler Amostra</a>
+                    </div>
                 </div>
             </div>
 
@@ -582,33 +770,293 @@
                     <p>"Poucos livros me tocaram tão profundamente quanto este. A habilidade do autor em tecer uma história que combina sensibilidade e mistério é extraordinária. Mal posso esperar pelo próximo volume."</p>
                     <strong>- Leitor Verificado</strong>
                 </div>
+                <div class="testimonial">
+                    <p>"Uma leitura transformadora. Cada página revela uma nova camada de significado sobre nossas relações. Recomendo fortemente para quem busca literatura com profundidade emocional."</p>
+                    <strong>- Leitor Verificado</strong>
+                </div>
+            </div>
+        </section>
+        
+        <section id="book-coletanea-poesias" class="page-section book-detail">
+            <button class="btn btn-secondary back-btn" onclick="showPage('books')">
+                ← Voltar aos Livros
+            </button>
+            
+            <h2>Coletânea de Poesias</h2>
+            
+            <div class="book-info">
+                <div class="book-cover">
+                    Coletânea de Poesias<br>
+                    <small>José França</small>
+                </div>
+                <div>
+                    <h3>Sinopse</h3>
+                    <p>Esta coletânea de poesias representa uma jornada através dos labirintos da alma humana, explorando temas como amor, perda, esperança e a busca por significado em um mundo complexo.</p>
+                    
+                    <p>Com uma linguagem poética refinada que combina tradição e modernidade, José França oferece reflexões profundas sobre a condição humana na era contemporânea. Cada poema é uma janela para sentimentos universais expressos com singular sensibilidade.</p>
+                    
+                    <p>Esta obra é um convite à introspecção e ao autoconhecimento, onde cada verso ressoa com a experiência humana em suas múltiplas dimensões.</p>
+                    
+                    <h3>Detalhes da Obra</h3>
+                    <ul style="margin-left: 1.5rem; margin-top: 1rem;">
+                        <li><strong>Gênero:</strong> Poesia Contemporânea</li>
+                        <li><strong>Páginas:</strong> 180</li>
+                        <li><strong>Editora:</strong> Versos Editora</li>
+                        <li><strong>Temas:</strong> Amor, Existência, Natureza Humana</li>
+                        <li><strong>Público:</strong> Amantes de Poesia</li>
+                    </ul>
+                    
+                    <div style="margin-top: 2rem;">
+                        <a href="#" class="btn">Adquirir Livro</a>
+                        <a href="#" class="btn btn-secondary" style="margin-left: 1rem;">Ler Amostra</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonials">
+                <h3>O que os leitores estão dizendo</h3>
+                <div class="testimonial">
+                    <p>"Uma obra que toca a alma. Cada poema é uma pérola de sensibilidade e reflexão. José França demonstra um domínio impressionante da linguagem poética."</p>
+                    <strong>- Leitor Verificado</strong>
+                </div>
+                <div class="testimonial">
+                    <p>"Raramente encontro poesia contemporânea com tanta profundidade. Esta coletânea se tornou meu livro de cabeceira, sempre aberto para momentos de reflexão."</p>
+                    <strong>- Leitor Verificado</strong>
+                </div>
+            </div>
+        </section>
+        
+        <section id="book-amor-persiste" class="page-section book-detail">
+            <button class="btn btn-secondary back-btn" onclick="showPage('books')">
+                ← Voltar aos Livros
+            </button>
+            
+            <h2>O Amor Que Persiste</h2>
+            
+            <div class="book-info">
+                <div class="book-cover">
+                    O Amor Que Persiste<br>
+                    <small>José França</small>
+                </div>
+                <div>
+                    <h3>Sinopse</h3>
+                    <p>Em "O Amor Que Persiste", acompanhamos a história de Clara e Eduardo, cujo amor é posto à prova por circunstâncias imprevistas da vida. Uma narrativa tocante sobre como o amor persiste mesmo nos momentos mais difíceis, mostrando a força dos sentimentos humanos diante das adversidades.</p>
+                    
+                    <p>Com personagens ricamente construídos e uma trama que alterna entre passado e presente, José França explora a resiliência do amor verdadeiro e sua capacidade de superar obstáculos aparentemente intransponíveis.</p>
+                    
+                    <p>Esta obra é um tributo à persistência do sentimento amoroso e uma reflexão sobre como nossas escolhas moldam nosso destino emocional.</p>
+                    
+                    <h3>Detalhes da Obra</h3>
+                    <ul style="margin-left: 1.5rem; margin-top: 1rem;">
+                        <li><strong>Gênero:</strong> Romance</li>
+                        <li><strong>Páginas:</strong> 280</li>
+                        <li><strong>Editora:</strong> Coração Literário</li>
+                        <li><strong>Temas:</strong> Amor, Superação, Destino</li>
+                        <li><strong>Público:</strong> Adultos</li>
+                    </ul>
+                    
+                    <div style="margin-top: 2rem;">
+                        <a href="#" class="btn">Adquirir Livro</a>
+                        <a href="#" class="btn btn-secondary" style="margin-left: 1rem;">Ler Amostra</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonials">
+                <h3>O que os leitores estão dizendo</h3>
+                <div class="testimonial">
+                    <p>"Uma história de amor que foge dos clichês. A narrativa é sensível e realista, mostrando que o amor verdadeiro exige trabalho e perseverança. Me emocionei do começo ao fim."</p>
+                    <strong>- Leitor Verificado</strong>
+                </div>
+                <div class="testimonial">
+                    <p>"José França tem o dom de criar personagens tão reais que sentimos como se os conhecêssemos. A jornada de Clara e Eduardo é inspiradora e profundamente humana."</p>
+                    <strong>- Leitor Verificado</strong>
+                </div>
+            </div>
+        </section>
+        
+        <section id="book-jornada-espiritual" class="page-section book-detail">
+            <button class="btn btn-secondary back-btn" onclick="showPage('books')">
+                ← Voltar aos Livros
+            </button>
+            
+            <h2>Jornada Espiritual</h2>
+            
+            <div class="book-info">
+                <div class="book-cover">
+                    Jornada Espiritual<br>
+                    <small>José França</small>
+                </div>
+                <div>
+                    <h3>Sinopse</h3>
+                    <p>"Jornada Espiritual" é uma obra que transcende gêneros literários, combinando elementos de ficção, filosofia e espiritualidade em uma narrativa cativante sobre a busca por significado existencial.</p>
+                    
+                    <p>Acompanhamos a jornada de Miguel, um homem que após uma crise pessoal, embarca em uma peregrinação interior e exterior em busca de respostas para as grandes questões da vida. Sua jornada o leva a encontros transformadores e a descobertas que mudam sua percepção de si mesmo e do mundo.</p>
+                    
+                    <p>Este livro é uma reflexão profunda sobre o sentido da existência e os caminhos da alma humana, apresentada através de uma narrativa acessível e poética.</p>
+                    
+                    <h3>Detalhes da Obra</h3>
+                    <ul style="margin-left: 1.5rem; margin-top: 1rem;">
+                        <li><strong>Gênero:</strong> Ficção Filosófica/Espiritual</li>
+                        <li><strong>Páginas:</strong> 350</li>
+                        <li><strong>Editora:</strong> Alma Editora</li>
+                        <li><strong>Temas:</strong> Espiritualidade, Autoconhecimento, Propósito</li>
+                        <li><strong>Público:</strong> Adultos</li>
+                    </ul>
+                    
+                    <div style="margin-top: 2rem;">
+                        <a href="#" class="btn">Adquirir Livro</a>
+                        <a href="#" class="btn btn-secondary" style="margin-left: 1rem;">Ler Amostra</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonials">
+                <h3>O que os leitores estão dizendo</h3>
+                <div class="testimonial">
+                    <p>"Mais do que um livro, uma experiência transformadora. A jornada de Miguel reflete a busca que muitos de nós empreendemos. Uma obra que permanece conosco muito depois da última página."</p>
+                    <strong>- Leitor Verificado</strong>
+                </div>
+                <div class="testimonial">
+                    <p>"José França consegue abordar temas espirituais complexos com uma linguagem acessível e poética. Este livro mudou minha perspectiva sobre muitas questões existenciais."</p>
+                    <strong>- Leitor Verificado</strong>
+                </div>
             </div>
         </section>
 
         <!-- BLOG PAGE -->
         <section id="blog" class="page-section">
             <h1>Blog</h1>
+            <p style="margin-bottom: 2rem; max-width: 800px;">Reflexões, processos criativos e insights sobre literatura, escrita e o universo dos livros.</p>
+            
             <div class="blog-posts">
-                <article class="blog-post">
+                <article class="blog-post" onclick="showBlogPost('post1')">
                     <h3>O Processo Criativo de "O Menino Que Via As Mulheres"</h3>
-                    <div class="blog-meta">Publicado em 10 de Junho de 2025</div>
+                    <div class="blog-meta">
+                        <span>📅 10 de Junho de 2025</span>
+                        <span>⏱ 5 min de leitura</span>
+                    </div>
                     <p>Descobrir a história deste menino especial foi uma jornada fascinante. Tudo começou com uma simples observação sobre como as pessoas se relacionam e como nem sempre vemos além das aparências...</p>
-                    <a href="#" class="btn">Ler Mais</a>
+                    <a href="#" class="btn">Ler Artigo Completo</a>
                 </article>
 
-                <article class="blog-post">
+                <article class="blog-post" onclick="showBlogPost('post2')">
                     <h3>A Importância da Empatia na Literatura Contemporânea</h3>
-                    <div class="blog-meta">Publicado em 5 de Junho de 2025</div>
+                    <div class="blog-meta">
+                        <span>📅 5 de Junho de 2025</span>
+                        <span>⏱ 4 min de leitura</span>
+                    </div>
                     <p>Em um mundo cada vez mais conectado, mas paradoxalmente mais distante, a literatura tem o poder único de nos reconectar com nossa humanidade...</p>
-                    <a href="#" class="btn">Ler Mais</a>
+                    <a href="#" class="btn">Ler Artigo Completo</a>
                 </article>
 
-                <article class="blog-post">
+                <article class="blog-post" onclick="showBlogPost('post3')">
                     <h3>Reflexões Sobre o Futuro da Saga</h3>
-                    <div class="blog-meta">Publicado em 1 de Junho de 2025</div>
+                    <div class="blog-meta">
+                        <span>📅 1 de Junho de 2025</span>
+                        <span>⏱ 6 min de leitura</span>
+                    </div>
                     <p>Muitos leitores têm perguntado sobre os próximos volumes da saga. Posso adiantar que a jornada do menino está apenas começando...</p>
-                    <a href="#" class="btn">Ler Mais</a>
+                    <a href="#" class="btn">Ler Artigo Completo</a>
                 </article>
+            </div>
+        </section>
+        
+        <!-- BLOG POSTS DETAILS -->
+        <section id="post1" class="page-section blog-detail">
+            <button class="btn btn-secondary back-btn" onclick="showPage('blog')">
+                ← Voltar ao Blog
+            </button>
+            
+            <div class="blog-content">
+                <div class="blog-meta">
+                    <span>📅 10 de Junho de 2025</span>
+                    <span>⏱ 5 min de leitura</span>
+                    <span>✍️ José França</span>
+                </div>
+                
+                <h2>O Processo Criativo de "O Menino Que Via As Mulheres"</h2>
+                
+                <p>Descobrir a história deste menino especial foi uma jornada fascinante que começou com uma simples observação: como as pessoas se relacionam e como raramente conseguimos ver além das aparências. A ideia central surgiu durante uma viagem de trem, observando os passageiros e imaginando as histórias por trás de cada rosto.</p>
+                
+                <p>O protagonista, Lucas, nasceu quase que por completo em minha mente. Seu dom - a capacidade de ver a essência verdadeira das mulheres - não é apenas uma habilidade sobrenatural, mas uma metáfora para a empatia que todos podemos desenvolver se estivermos dispostos a olhar além das superfícies.</p>
+                
+                <blockquote>
+                    "Cada personagem feminina que Lucas encontra representa um aspecto da experiência feminina que eu queria explorar com respeito e profundidade."
+                </blockquote>
+                
+                <p>O processo de escrita foi orgânico. Comecei com esboços de cenas-chave e deixei que os personagens me guiassem através de suas histórias. Houve muitas revisões - o primeiro rascunho era completamente diferente do livro publicado. As personagens evoluíram, as tramas se entrelaçaram de maneiras inesperadas, e o tema central da empatia emergiu como o coração da narrativa.</p>
+                
+                <p>Um dos maiores desafios foi equilibrar o elemento fantástico do dom de Lucas com o realismo emocional da história. Queria que os leitores pudessem se identificar com as experiências mesmo quando o contexto era extraordinário.</p>
+                
+                <p>A jornada de criação deste livro me transformou como escritor e como pessoa. Espero que a leitura traga uma transformação similar aos meus leitores.</p>
+            </div>
+        </section>
+        
+        <section id="post2" class="page-section blog-detail">
+            <button class="btn btn-secondary back-btn" onclick="showPage('blog')">
+                ← Voltar ao Blog
+            </button>
+            
+            <div class="blog-content">
+                <div class="blog-meta">
+                    <span>📅 5 de Junho de 2025</span>
+                    <span>⏱ 4 min de leitura</span>
+                    <span>✍️ José França</span>
+                </div>
+                
+                <h2>A Importância da Empatia na Literatura Contemporânea</h2>
+                
+                <p>Em um mundo cada vez mais conectado digitalmente, mas paradoxalmente mais distante emocionalmente, a literatura tem o poder único de nos reconectar com nossa humanidade compartilhada. Através das histórias, podemos viver inúmeras vidas, experimentar diversas perspectivas e desenvolver uma compreensão mais profunda da condição humana.</p>
+                
+                <p>A empatia literária não é apenas sobre se colocar no lugar do outro - é sobre permitir que o outro habite em você, mesmo que temporariamente. É essa capacidade transformadora que torna a leitura uma experiência tão poderosa.</p>
+                
+                <blockquote>
+                    "Ler um bom livro é realizar uma viagem interior que expande nossos horizontes emocionais e intelectuais."
+                </blockquote>
+                
+                <p>Na literatura contemporânea, vejo uma tendência crescente de explorar personagens complexos e multifacetados. Isso reflete uma compreensão mais madura da natureza humana - não mais heróis perfeitos ou vilões puramente malignos, mas indivíduos com contradições, desafios e histórias que os moldaram.</p>
+                
+                <p>Como escritor, busco criar personagens que desafiem as expectativas do leitor e os façam questionar seus próprios preconceitos. A verdadeira magia acontece quando um leitor diz: 'Eu nunca teria agido assim', mas depois de acompanhar a jornada do personagem, compreende perfeitamente suas escolhas.</p>
+                
+                <p>Nesta era de polarização, a literatura que cultiva a empatia é mais necessária do que nunca. Ela nos lembra que, por trás de cada história, há um ser humano com esperanças, medos e sonhos tão válidos quanto os nossos.</p>
+            </div>
+        </section>
+        
+        <section id="post3" class="page-section blog-detail">
+            <button class="btn btn-secondary back-btn" onclick="showPage('blog')">
+                ← Voltar ao Blog
+            </button>
+            
+            <div class="blog-content">
+                <div class="blog-meta">
+                    <span>📅 1 de Junho de 2025</span>
+                    <span>⏱ 6 min de leitura</span>
+                    <span>✍️ José França</span>
+                </div>
+                
+                <h2>Reflexões Sobre o Futuro da Saga</h2>
+                
+                <p>A resposta dos leitores a "O Menino Que Via As Mulheres" tem sido extraordinária e profundamente comovente. Recebo mensagens diárias de pessoas compartilhando como a história de Lucas ressoou com suas próprias experiências. Essa conexão é o maior presente que um escritor pode receber.</p>
+                
+                <p>Muitos têm perguntado sobre os próximos volumes da saga. Posso adiantar que a jornada de Lucas está apenas começando. O segundo livro, atualmente em desenvolvimento, explora as consequências de seu dom à medida que ele entra na adolescência - um período já complexo que se torna ainda mais desafiador com sua habilidade única.</p>
+                
+                <blockquote>
+                    "A saga de Lucas será uma jornada de crescimento e autodescoberta que acompanhará o protagonista desde a infância até a vida adulta."
+                </blockquote>
+                
+                <p>Alguns temas que serão explorados nos próximos volumes:</p>
+                
+                <ul style="margin-left: 1.5rem; margin-top: 1rem;">
+                    <li>A relação entre percepção e responsabilidade</li>
+                    <li>O amadurecimento emocional frente a um dom incomum</li>
+                    <li>As diferentes formas de amor e conexão humana</li>
+                    <li>O desafio de manter a autenticidade em um mundo que valoriza aparências</li>
+                </ul>
+                
+                <p>Estou especialmente animado para desenvolver alguns personagens secundários que apareceram brevemente no primeiro livro. Cada um deles tem uma história rica que merece ser contada, e suas jornadas se entrelaçarão com a de Lucas de maneiras significativas.</p>
+                
+                <p>Agradeço a todos os leitores pela paciência enquanto trabalho para entregar uma continuação à altura das expectativas. Prometo que valerá a pena esperar!</p>
             </div>
         </section>
 
@@ -647,6 +1095,21 @@
     </main>
 
     <footer>
+        <div class="social-links">
+            <a href="#" aria-label="Facebook">📘</a>
+            <a href="#" aria-label="Instagram">📷</a>
+            <a href="#" aria-label="Twitter">🐦</a>
+            <a href="#" aria-label="Goodreads">📚</a>
+        </div>
+        
+        <div class="footer-links">
+            <a href="#" onclick="showPage('home')">Início</a>
+            <a href="#" onclick="showPage('about')">Sobre</a>
+            <a href="#" onclick="showPage('books')">Livros</a>
+            <a href="#" onclick="showPage('blog')">Blog</a>
+            <a href="#" onclick="showPage('contact')">Contato</a>
+        </div>
+        
         <p>&copy; 2025 José França. Todos os direitos reservados. | Literatura Brasileira Contemporânea</p>
     </footer>
 
@@ -680,6 +1143,7 @@
                 if (themeButton) themeButton.textContent = 'Tema Azul';
             }
         }
+
         // Navigation functionality
         function showPage(pageId) {
             // Hide all pages
@@ -703,10 +1167,19 @@
             
             // Scroll to top
             window.scrollTo(0, 0);
+            
+            // Track page view
+            trackPageView(pageId);
         }
 
         function showBookDetail(bookId) {
             showPage(`book-${bookId}`);
+            trackBookClick(bookId.replace(/-/g, ' '));
+        }
+        
+        function showBlogPost(postId) {
+            showPage(postId);
+            trackBlogClick(postId);
         }
 
         // Mobile menu toggle
@@ -720,6 +1193,7 @@
             event.preventDefault();
             alert('Obrigado pela sua mensagem! Entrarei em contato em breve.');
             event.target.reset();
+            trackFormSubmission();
         }
 
         // Event listeners
@@ -741,20 +1215,38 @@
             const bookCards = document.querySelectorAll('.book-card');
             bookCards.forEach(card => {
                 card.addEventListener('click', function() {
-                    // This is handled by onclick attributes in HTML
+                    // Handled by onclick attributes
+                });
+            });
+            
+            // Blog post clicks
+            const blogPosts = document.querySelectorAll('.blog-post');
+            blogPosts.forEach(post => {
+                post.addEventListener('click', function() {
+                    // Handled by onclick attributes
                 });
             });
         });
 
-        // SEO and Analytics placeholder functions
+        // SEO and Analytics functions
         function trackPageView(page) {
-            // Placeholder for Google Analytics or other tracking
-            console.log(`Page view: ${page}`);
+            console.log(`Page view tracked: ${page}`);
+            // Implementation for Google Analytics would go here
         }
 
         function trackBookClick(bookTitle) {
-            // Placeholder for tracking book interactions
-            console.log(`Book clicked: ${bookTitle}`);
+            console.log(`Book interaction tracked: ${bookTitle}`);
+            // Implementation for Google Analytics would go here
+        }
+        
+        function trackBlogClick(postId) {
+            console.log(`Blog post viewed: ${postId}`);
+            // Implementation for Google Analytics would go here
+        }
+        
+        function trackFormSubmission() {
+            console.log('Contact form submitted');
+            // Implementation for Google Analytics would go here
         }
     </script>
 </body>
