@@ -3,617 +3,758 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>O Menino Que Via As Mulheres - José França</title>
+    <title>José França - Autor de Literatura Brasileira Contemporânea</title>
+    <meta name="description" content="José França, autor de 'O Menino Que Via As Mulheres' e outras obras de literatura brasileira. Descubra histórias cativantes e reflexões profundas.">
     <style>
+        :root {
+            /* Dark Theme (Default) */
+            --primary-color: #1a1a1a;
+            --secondary-color: #333333;
+            --accent-color: #666666;
+            --text-color: #333;
+            --bg-color: #fafafa;
+            --card-bg: #ffffff;
+            --border-color: #1a1a1a;
+        }
+
+        [data-theme="blue"] {
+            /* Blue Theme */
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #2980b9;
+            --text-color: #333;
+            --bg-color: #fafafa;
+            --card-bg: #ffffff;
+            --border-color: #3498db;
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Playfair Display', serif;
         }
-        
+
         body {
-            background-color: #fcf7f8;
-            color: #333;
+            font-family: 'Georgia', serif;
             line-height: 1.6;
+            color: var(--text-color);
+            background: var(--bg-color);
+            transition: all 0.3s ease;
         }
-        
-        .gradient-bg {
-            background: linear-gradient(135deg, #f5e6e8 0%, #f9f2dd 100%);
-            min-height: 100vh;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .gradient-bg::before {
-            content: "";
-            position: absolute;
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
             top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23d0bbc0' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
-            opacity: 0.6;
-            z-index: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
         }
-        
-        .container {
+
+        nav {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
-            position: relative;
-            z-index: 1;
-        }
-        
-        header {
-            padding: 30px 0;
-            text-align: center;
-        }
-        
-        header h1 {
-            font-size: 32px;
-            margin-bottom: 10px;
-            color: #4a3b44;
-            font-weight: 700;
-        }
-        
-        header p {
-            color: #6d5a62;
-            font-style: italic;
-        }
-        
-        .hero {
             display: flex;
-            flex-direction: column;
+            justify-content: space-between;
             align-items: center;
-            padding: 60px 0;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            text-decoration: none;
+            color: white;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .nav-menu a:hover, .nav-menu a.active {
+            background: rgba(255,255,255,0.2);
+        }
+
+        /* Theme Toggle Button */
+        .theme-toggle {
+            background: rgba(255,255,255,0.2);
+            border: 1px solid rgba(255,255,255,0.3);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .theme-toggle:hover {
+            background: rgba(255,255,255,0.3);
+        }
+
+        .theme-icon {
+            font-size: 1rem;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .mobile-menu span {
+            width: 25px;
+            height: 3px;
+            background: white;
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        /* Main Content */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .page-section {
+            display: none;
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        .page-section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Hero Section */
+        .hero {
             text-align: center;
+            padding: 4rem 0;
+            background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), 
+                        linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border-radius: 10px;
+            margin-bottom: 3rem;
+            transition: all 0.3s ease;
         }
-        
-        @media (min-width: 768px) {
-            .hero {
-                flex-direction: row;
-                text-align: left;
-                justify-content: space-between;
-                align-items: center;
-            }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
-        
-        .hero-content {
-            flex: 1;
-            max-width: 600px;
-        }
-        
-        .hero h2 {
-            font-size: 48px;
-            margin-bottom: 20px;
-            color: #4a3b44;
-            line-height: 1.2;
-        }
-        
+
         .hero p {
-            font-size: 18px;
-            margin-bottom: 30px;
-            color: #6d5a62;
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
         }
-        
-        .book-cover {
-            margin: 40px auto;
-            position: relative;
-            max-width: 300px;
-            transition: transform 0.3s ease;
+
+        /* Book Grid */
+        .book-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
         }
-        
-        @media (min-width: 768px) {
-            .book-cover {
-                margin: 0 0 0 40px;
-            }
+
+        .book-card {
+            background: var(--card-bg);
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
         }
-        
-        .book-cover img {
-            max-width: 100%;
-            border-radius: 8px;
-            box-shadow: 0 20px 30px rgba(106, 87, 101, 0.2);
+
+        .book-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
         }
-        
-        .book-cover:hover {
-            transform: translateY(-10px);
+
+        .book-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
         }
-        
+
+        .book-card p {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
         .btn {
             display: inline-block;
-            background: #8a6d7f;
+            background: var(--primary-color);
             color: white;
-            padding: 12px 30px;
-            border-radius: 50px;
+            padding: 0.8rem 2rem;
             text-decoration: none;
-            font-weight: 600;
-            letter-spacing: 1px;
+            border-radius: 5px;
             transition: all 0.3s ease;
-            margin-top: 20px;
             border: none;
             cursor: pointer;
-            font-size: 16px;
+            font-size: 1rem;
         }
-        
+
         .btn:hover {
-            background: #6d5767;
+            background: var(--secondary-color);
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(106, 87, 101, 0.4);
         }
-        
-        .features {
-            padding: 80px 0;
-            background-color: rgba(255, 255, 255, 0.7);
+
+        .btn-secondary {
+            background: #95a5a6;
         }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 60px;
-            color: #4a3b44;
-            font-size: 32px;
-            position: relative;
+
+        .btn-secondary:hover {
+            background: #7f8c8d;
         }
-        
-        .section-title::after {
-            content: "";
-            position: absolute;
-            bottom: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
-            background: linear-gradient(90deg, #f5e6e8, #d1b6bf);
-        }
-        
-        .features-grid {
+
+        /* About Section */
+        .about-content {
             display: grid;
-            grid-template-columns: 1fr;
-            gap: 30px;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: center;
+            background: var(--card-bg);
+            padding: 3rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin: 2rem 0;
         }
-        
-        @media (min-width: 768px) {
-            .features-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
-        
-        .feature-card {
-            background-color: #fff;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 10px 20px rgba(106, 87, 101, 0.1);
-            text-align: center;
-            transition: transform 0.3s ease;
-        }
-        
-        .feature-card:hover {
-            transform: translateY(-5px);
-        }
-        
-        .feature-card h3 {
-            color: #4a3b44;
-            margin-bottom: 15px;
-            font-size: 22px;
-        }
-        
-        .feature-card p {
-            color: #6d5a62;
-        }
-        
-        .published-books {
-            padding: 80px 0;
-            background-color: rgba(255, 255, 255, 0.5);
-        }
-        
-        .books-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 40px;
-            margin-top: 60px;
-        }
-        
-        @media (min-width: 768px) {
-            .books-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
-        
-        .book-item {
-            background-color: #fff;
-            border-radius: 12px;
-            padding: 25px;
-            box-shadow: 0 15px 25px rgba(106, 87, 101, 0.1);
+
+        .author-photo {
+            width: 100%;
+            max-width: 300px;
+            height: 400px;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 4rem;
+            margin: 0 auto;
             transition: all 0.3s ease;
-            text-align: center;
         }
-        
-        .book-item:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 35px rgba(106, 87, 101, 0.15);
-        }
-        
-        .book-cover-small {
-            width: 180px;
-            height: 260px;
-            margin: 0 auto 20px;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 10px 20px rgba(106, 87, 101, 0.2);
-            transition: transform 0.3s ease;
-        }
-        
-        .book-cover-small:hover {
-            transform: scale(1.05);
-        }
-        
-        .book-cover-small img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        .book-info h4 {
-            font-size: 20px;
-            color: #4a3b44;
-            margin-bottom: 15px;
-            font-weight: 600;
-        }
-        
-        .book-info p {
-            color: #6d5a62;
-            font-size: 14px;
-            line-height: 1.6;
-            text-align: left;
-        }
-        
-        .author {
-            padding: 80px 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        
-        @media (min-width: 768px) {
-            .author {
-                flex-direction: row;
-                align-items: center;
-            }
-        }
-        
-        .author-image {
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            overflow: hidden;
-            box-shadow: 0 10px 20px rgba(106, 87, 101, 0.2);
-            margin-bottom: 30px;
-        }
-        
-        @media (min-width: 768px) {
-            .author-image {
-                margin-bottom: 0;
-                margin-right: 40px;
-            }
-        }
-        
-        .author-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        .author-content {
-            flex: 1;
-        }
-        
-        .author-content h3 {
-            font-size: 28px;
-            margin-bottom: 20px;
-            color: #4a3b44;
-        }
-        
-        .author-content p {
-            color: #6d5a62;
-            margin-bottom: 20px;
-        }
-        
-        .testimonials {
-            padding: 80px 0;
-            background-color: rgba(245, 230, 232, 0.5);
-        }
-        
-        .testimonial-grid {
+
+        /* Blog Section */
+        .blog-posts {
             display: grid;
-            grid-template-columns: 1fr;
-            gap: 30px;
+            gap: 2rem;
         }
-        
-        @media (min-width: 768px) {
-            .testimonial-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
+
+        .blog-post {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
-        
-        .testimonial-card {
-            background-color: #fff;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 10px 20px rgba(106, 87, 101, 0.1);
-            position: relative;
+
+        .blog-post h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
         }
-        
-        .testimonial-card::before {
-            content: """;
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            font-size: 60px;
-            color: rgba(209, 182, 191, 0.3);
-            font-family: serif;
-            line-height: 1;
+
+        .blog-meta {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
         }
-        
-        .testimonial-content {
-            margin-bottom: 20px;
-            color: #6d5a62;
-            font-style: italic;
-        }
-        
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-        }
-        
-        .testimonial-author img {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            margin-right: 15px;
-        }
-        
-        .testimonial-author-info h4 {
-            color: #4a3b44;
-            margin-bottom: 5px;
-        }
-        
-        .testimonial-author-info p {
-            color: #8a6d7f;
-            font-size: 14px;
-        }
-        
-        .cta {
-            padding: 80px 0;
-            text-align: center;
-        }
-        
-        .cta h3 {
-            font-size: 36px;
-            margin-bottom: 20px;
-            color: #4a3b44;
-        }
-        
-        .cta p {
+
+        /* Contact Form */
+        .contact-form {
+            background: var(--card-bg);
+            padding: 3rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
             max-width: 600px;
-            margin: 0 auto 30px;
-            color: #6d5a62;
+            margin: 2rem auto;
         }
-        
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #ecf0f1;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--border-color);
+        }
+
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        /* Footer */
         footer {
-            background-color: #4a3b44;
-            color: #f5e6e8;
-            padding: 40px 0;
+            background: var(--primary-color);
+            color: white;
             text-align: center;
-        }
-        
-        .social-links {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 20px;
-        }
-        
-        .social-link {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            margin: 0 10px;
-            color: #f5e6e8;
-            text-decoration: none;
+            padding: 2rem;
+            margin-top: 4rem;
             transition: all 0.3s ease;
         }
-        
-        .social-link:hover {
-            background-color: rgba(255, 255, 255, 0.2);
-            transform: translateY(-3px);
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: #2c3e50;
+                flex-direction: column;
+                padding: 1rem;
+            }
+
+            .nav-menu.active {
+                display: flex;
+                background: var(--primary-color);
+            }
+
+            .mobile-menu {
+                display: flex;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            nav {
+                padding: 0 1rem;
+            }
+
+            main {
+                padding: 1rem;
+            }
         }
-        
-        .footer-nav {
-            margin-bottom: 20px;
+
+        /* Book Detail Styles */
+        .book-detail {
+            background: var(--card-bg);
+            padding: 3rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin: 2rem 0;
         }
-        
-        .footer-nav a {
-            color: #f5e6e8;
-            margin: 0 15px;
-            text-decoration: none;
-            transition: color 0.3s ease;
-            cursor: pointer;
+
+        .book-detail h2 {
+            color: var(--primary-color);
+            margin-bottom: 2rem;
+            font-size: 2.5rem;
         }
-        
-        .footer-nav a:hover {
-            color: #d1b6bf;
+
+        .book-info {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
         }
-        
-        .copyright {
-            font-size: 14px;
-            color: rgba(245, 230, 232, 0.7);
+
+        .book-cover {
+            width: 100%;
+            max-width: 300px;
+            height: 400px;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            text-align: center;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .testimonials {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+        }
+
+        .testimonial {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            border-left: 4px solid var(--border-color);
         }
     </style>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="gradient-bg">
-        <div class="container">
-            <header id="inicio">
-                <h1>JOSÉ FRANÇA</h1>
-                <p>Autor de "O Menino Que Via As Mulheres"</p>
-            </header>
-            
-            <section class="hero" id="sobre-livro">
-                <div class="hero-content">
-                    <h2>O Menino Que Via As Mulheres</h2>
+    <header>
+        <nav>
+            <a href="#" class="logo">José França</a>
+            <ul class="nav-menu">
+                <li><a href="#" class="nav-link active" data-page="home">Início</a></li>
+                <li><a href="#" class="nav-link" data-page="about">Sobre o Autor</a></li>
+                <li><a href="#" class="nav-link" data-page="books">Livros</a></li>
+                <li><a href="#" class="nav-link" data-page="blog">Blog</a></li>
+                <li><a href="#" class="nav-link" data-page="contact">Contato</a></li>
+                <li>
+                    <button class="theme-toggle" onclick="toggleTheme()">
+                        <span class="theme-icon">🎨</span>
+                        <span class="theme-text">Tema Azul</span>
+                    </button>
+                </li>
+            </ul>
+            <div class="mobile-menu" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- HOME PAGE -->
+        <section id="home" class="page-section active">
+            <div class="hero">
+                <h1>José França</h1>
+                <p>Autor de "O Menino Que Via As Mulheres" - Uma jornada extraordinária através dos olhos de um menino que possui um dom único</p>
+            </div>
+
+            <div class="book-grid">
+                <div class="book-card" onclick="showBookDetail('menino-via-mulheres')">
+                    <h3>O Menino Que Via As Mulheres</h3>
                     <p>Uma jornada extraordinária através dos olhos de um menino que possui um dom único: a capacidade de enxergar além das aparências e ver a verdadeira essência das mulheres que cruzam seu caminho.</p>
-                    <p>Livro I de uma saga fascinante que irá transformar sua percepção sobre conexões humanas e o poder da empatia.</p>
-                    <a href="https://wa.me/5531995370162?text=Olá!%20Gostaria%20de%20adquirir%20o%20livro%20%22O%20Menino%20Que%20Via%20As%20Mulheres%22%20de%20José%20França.%20Poderia%20me%20informar%20sobre%20preço%20e%20formas%20de%20pagamento?" target="_blank" class="btn">ADQUIRA SEU EXEMPLAR</a>
+                    <a href="#" class="btn">Saiba Mais</a>
                 </div>
+
+                <div class="book-card" onclick="showBookDetail('coletanea-poesias')">
+                    <h3>Coletânea de Poesias</h3>
+                    <p>Uma coletânea de poesias que reflete sobre a condição humana na era contemporânea, explorando temas universais através de uma linguagem poética refinada.</p>
+                    <a href="#" class="btn">Saiba Mais</a>
+                </div>
+
+                <div class="book-card" onclick="showBookDetail('amor-persiste')">
+                    <h3>O Amor Que Persiste</h3>
+                    <p>Uma narrativa tocante sobre como o amor persiste mesmo nos momentos mais difíceis, mostrando a força dos sentimentos humanos diante das adversidades.</p>
+                    <a href="#" class="btn">Saiba Mais</a>
+                </div>
+
+                <div class="book-card" onclick="showBookDetail('jornada-espiritual')">
+                    <h3>Jornada Espiritual</h3>
+                    <p>Uma jornada espiritual e filosófica que convida o leitor a uma reflexão profunda sobre o sentido da existência e os caminhos da alma humana.</p>
+                    <a href="#" class="btn">Saiba Mais</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT PAGE -->
+        <section id="about" class="page-section">
+            <h1>Sobre o Autor</h1>
+            <div class="about-content">
+                <div class="author-photo">JF</div>
+                <div>
+                    <h2>José França</h2>
+                    <p>José França é um autor brasileiro contemporâneo conhecido por sua sensibilidade única em retratar as complexidades da natureza humana. Nascido e criado no Brasil, desenvolveu desde cedo uma paixão pela literatura e pela observação das relações interpessoais.</p>
+                    
+                    <p>Seu trabalho é caracterizado por uma prosa elegante e reflexiva, que explora temas universais como amor, empatia, espiritualidade e a condição humana. Com uma capacidade excepcional de criar personagens memoráveis e situações que ressoam profundamente com os leitores, José França estabeleceu-se como uma voz distintiva na literatura brasileira.</p>
+                    
+                    <p>Seu livro de estreia, "O Menino Que Via As Mulheres", marca o início de uma saga fascinante que promete transformar a percepção dos leitores sobre conexões humanas e o poder da empatia. A obra tem conquistado leitores em todo o país, sendo elogiada pela crítica especializada e pelo público em geral.</p>
+                    
+                    <p>Além da ficção, José França também se dedica à poesia, explorando temas contemporâneos através de uma linguagem poética refinada que combina tradição e modernidade.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- BOOKS PAGE -->
+        <section id="books" class="page-section">
+            <h1>Livros</h1>
+            <div class="book-grid">
+                <div class="book-card" onclick="showBookDetail('menino-via-mulheres')">
+                    <h3>O Menino Que Via As Mulheres</h3>
+                    <p><strong>Livro I da Saga</strong></p>
+                    <p>Uma jornada extraordinária através dos olhos de um menino que possui um dom único: a capacidade de enxergar além das aparências.</p>
+                    <a href="#" class="btn">Ver Detalhes</a>
+                </div>
+
+                <div class="book-card" onclick="showBookDetail('coletanea-poesias')">
+                    <h3>Coletânea de Poesias</h3>
+                    <p><strong>Poesia Contemporânea</strong></p>
+                    <p>Reflexões sobre a condição humana na era contemporânea através de uma linguagem poética refinada.</p>
+                    <a href="#" class="btn">Ver Detalhes</a>
+                </div>
+
+                <div class="book-card" onclick="showBookDetail('amor-persiste')">
+                    <h3>O Amor Que Persiste</h3>
+                    <p><strong>Romance</strong></p>
+                    <p>Uma narrativa tocante sobre a força dos sentimentos humanos diante das adversidades.</p>
+                    <a href="#" class="btn">Ver Detalhes</a>
+                </div>
+
+                <div class="book-card" onclick="showBookDetail('jornada-espiritual')">
+                    <h3>Jornada Espiritual</h3>
+                    <p><strong>Filosofia e Espiritualidade</strong></p>
+                    <p>Uma reflexão profunda sobre o sentido da existência e os caminhos da alma humana.</p>
+                    <a href="#" class="btn">Ver Detalhes</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- BOOK DETAILS -->
+        <section id="book-menino-via-mulheres" class="page-section book-detail">
+            <button class="btn btn-secondary" onclick="showPage('books')" style="margin-bottom: 2rem;">← Voltar aos Livros</button>
+            
+            <h2>O Menino Que Via As Mulheres</h2>
+            
+            <div class="book-info">
                 <div class="book-cover">
-                    <img src="capa3.jpeg" alt="Capa do livro O Menino Que Via As Mulheres">
+                    O Menino Que Via As Mulheres<br>
+                    <small>José França</small>
                 </div>
-            </section>
-        </div>
-        
-        <section class="features">
-            <div class="container">
-                <h2 class="section-title">Por que ler esta obra</h2>
-                <div class="features-grid">
-                    <div class="feature-card">
-                        <i class="fas fa-heart" style="font-size: 40px; color: #8a6d7f; margin-bottom: 20px;"></i>
-                        <h3>Narrativa Emocionante</h3>
-                        <p>Uma história cativante que conecta emoções e reflexões profundas sobre a natureza humana.</p>
-                    </div>
-                    <div class="feature-card">
-                        <i class="fas fa-feather-alt" style="font-size: 40px; color: #8a6d7f; margin-bottom: 20px;"></i>
-                        <h3>Escrita Poética</h3>
-                        <p>Prosa elegante e sensível que transporta o leitor para dentro do universo das personagens.</p>
-                    </div>
-                    <div class="feature-card">
-                        <i class="fas fa-lightbulb" style="font-size: 40px; color: #8a6d7f; margin-bottom: 20px;"></i>
-                        <h3>Perspectiva Única</h3>
-                        <p>Um olhar singular sobre as relações humanas através de um protagonista com percepções extraordinárias.</p>
-                    </div>
+                <div>
+                    <h3>Sinopse</h3>
+                    <p>Uma jornada extraordinária através dos olhos de um menino que possui um dom único: a capacidade de enxergar além das aparências e ver a verdadeira essência das mulheres que cruzam seu caminho.</p>
+                    
+                    <p>Livro I de uma saga fascinante que irá transformar sua percepção sobre conexões humanas e o poder da empatia. Uma história cativante que conecta emoções e reflexões profundas sobre a natureza humana.</p>
+                    
+                    <p>Com uma prosa elegante e sensível, José França transporta o leitor para dentro do universo das personagens, oferecendo um olhar singular sobre as relações humanas através de um protagonista com percepções extraordinárias.</p>
+                    
+                    <h3>Detalhes da Obra</h3>
+                    <ul>
+                        <li><strong>Gênero:</strong> Ficção Contemporânea</li>
+                        <li><strong>Série:</strong> Livro I da Saga</li>
+                        <li><strong>Temas:</strong> Empatia, Conexões Humanas, Percepção</li>
+                        <li><strong>Público:</strong> Jovens Adultos e Adultos</li>
+                    </ul>
+                    
+                    <a href="#" class="btn" style="margin-top: 2rem;">Adquirir Livro</a>
+                </div>
+            </div>
+
+            <div class="testimonials">
+                <h3>O que os leitores estão dizendo</h3>
+                <div class="testimonial">
+                    <p>"Uma narrativa envolvente e sensível que me fez refletir sobre como vemos uns aos outros. José França criou um protagonista inesquecível cujo dom se torna uma jornada de autodescoberta."</p>
+                    <strong>- Leitor Verificado</strong>
+                </div>
+                <div class="testimonial">
+                    <p>"Poucos livros me tocaram tão profundamente quanto este. A habilidade do autor em tecer uma história que combina sensibilidade e mistério é extraordinária. Mal posso esperar pelo próximo volume."</p>
+                    <strong>- Leitor Verificado</strong>
                 </div>
             </div>
         </section>
-        
-        <section class="published-books">
-            <div class="container">
-                <h2 class="section-title">Outras Obras do Autor</h2>
-                <div class="books-grid">
-                    <div class="book-item">
-                        <div class="book-cover-small">
-                            <img src="versos-pos-modernos.jpg" alt="Versos Pós-Modernos">
-                        </div>
-                        <div class="book-info">
-                            <h4>Versos Pós-Modernos</h4>
-                            <p>Uma coletânea de poesias que reflete sobre a condição humana na era contemporânea, explorando temas universais através de uma linguagem poética refinada.</p>
-                        </div>
-                    </div>
-                    <div class="book-item">
-                        <div class="book-cover-small">
-                            <img src="amor-tempos-guerra.jpg" alt="Amor em Tempos de Guerra">
-                        </div>
-                        <div class="book-info">
-                            <h4>Amor em Tempos de Guerra</h4>
-                            <p>Uma narrativa tocante sobre como o amor persiste mesmo nos momentos mais difíceis, mostrando a força dos sentimentos humanos diante das adversidades.</p>
-                        </div>
-                    </div>
-                    <div class="book-item">
-                        <div class="book-cover-small">
-                            <img src="viagem-kamathom.jpg" alt="Viagem ao Kamathom">
-                        </div>
-                        <div class="book-info">
-                            <h4>Viagem ao Kamathom</h4>
-                            <p>Uma jornada espiritual e filosófica que convida o leitor a uma reflexão profunda sobre o sentido da existência e os caminhos da alma humana.</p>
-                        </div>
-                    </div>
-                </div>
+
+        <!-- BLOG PAGE -->
+        <section id="blog" class="page-section">
+            <h1>Blog</h1>
+            <div class="blog-posts">
+                <article class="blog-post">
+                    <h3>O Processo Criativo de "O Menino Que Via As Mulheres"</h3>
+                    <div class="blog-meta">Publicado em 10 de Junho de 2025</div>
+                    <p>Descobrir a história deste menino especial foi uma jornada fascinante. Tudo começou com uma simples observação sobre como as pessoas se relacionam e como nem sempre vemos além das aparências...</p>
+                    <a href="#" class="btn">Ler Mais</a>
+                </article>
+
+                <article class="blog-post">
+                    <h3>A Importância da Empatia na Literatura Contemporânea</h3>
+                    <div class="blog-meta">Publicado em 5 de Junho de 2025</div>
+                    <p>Em um mundo cada vez mais conectado, mas paradoxalmente mais distante, a literatura tem o poder único de nos reconectar com nossa humanidade...</p>
+                    <a href="#" class="btn">Ler Mais</a>
+                </article>
+
+                <article class="blog-post">
+                    <h3>Reflexões Sobre o Futuro da Saga</h3>
+                    <div class="blog-meta">Publicado em 1 de Junho de 2025</div>
+                    <p>Muitos leitores têm perguntado sobre os próximos volumes da saga. Posso adiantar que a jornada do menino está apenas começando...</p>
+                    <a href="#" class="btn">Ler Mais</a>
+                </article>
             </div>
         </section>
-        
-        <section class="author" id="sobre-autor">
-            <div class="container">
-                <div class="author-image">
-                    <img src="autor1.jpeg"alt="José França">
-                </div>
-                <div class="author-content">
-                    <h3>Sobre José França</h3>
-                    <p>José França é um escritor apaixonado pela exploração da psicologia humana e das complexas relações interpessoais. Com uma sensibilidade única para captar nuances emocionais, seus livros convidam os leitores a mergulhar em narrativas que combinam realismo e elementos de fantasia.</p>
-                    <p>"O Menino Que Via As Mulheres" é o primeiro livro de uma série que promete encantar e transformar a percepção dos leitores sobre empatia e conexão humana.</p>
-                </div>
-            </div>
-        </section>
-        
-        <section class="testimonials">
-            <div class="container">
-                <h2 class="section-title">O que os leitores estão dizendo</h2>
-                <div class="testimonial-grid">
-                    <div class="testimonial-card">
-                        <div class="testimonial-content">
-                            <p>Uma narrativa envolvente e sensível que me fez refletir sobre como vemos uns aos outros. José França criou um protagonista inesquecível cujo dom se torna uma jornada de autodescoberta.</p>
-                        </div>
-                        <div class="testimonial-author">
-                            <img src="Leitora1.png" alt="Leitor">
-                            <div class="testimonial-author-info">
-                                <h4>Ana Clara Gomes </h4>
-                                <p>Leitora Ávida</p>
-                            </div>
-                        </div>
+
+        <!-- CONTACT PAGE -->
+        <section id="contact" class="page-section">
+            <h1>Contato</h1>
+            <div class="contact-form">
+                <h2>Entre em Contato</h2>
+                <p style="margin-bottom: 2rem;">Gostaria de conversar sobre meus livros, fazer uma parceria ou simplesmente trocar ideias sobre literatura? Envie sua mensagem!</p>
+                
+                <form onsubmit="handleContactForm(event)">
+                    <div class="form-group">
+                        <label for="name">Nome</label>
+                        <input type="text" id="name" name="name" required>
                     </div>
-                    <div class="testimonial-card">
-                        <div class="testimonial-content">
-                            <p>Poucos livros me tocaram tão profundamente quanto este. A habilidade do autor em tecer uma história que combina sensibilidade e mistério é extraordinária. Mal posso esperar pelo próximo volume.</p>
-                        </div>
-                        <div class="testimonial-author">
-                            <img src="Leitor2.png" alt="Leitor">
-                            <div class="testimonial-author-info">
-                                <h4>Carlos Mendes</h4>
-                                <p>Clube do Livro</p>
-                            </div>
-                        </div>
+                    
+                    <div class="form-group">
+                        <label for="email">E-mail</label>
+                        <input type="email" id="email" name="email" required>
                     </div>
-                </div>
+                    
+                    <div class="form-group">
+                        <label for="subject">Assunto</label>
+                        <input type="text" id="subject" name="subject" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Mensagem</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn">Enviar Mensagem</button>
+                </form>
             </div>
         </section>
-        
-        <section class="cta" id="comprar">
-            <div class="container">
-                <h3>Embarque nessa jornada única</h3>
-                <p>Adquira seu exemplar de "O Menino Que Via As Mulheres" e descubra por que esta obra está conquistando leitores em todo o país.</p>
-                <a href="https://wa.me/5531995370162?text=Olá!%20Gostaria%20de%20adquirir%20o%20livro%20%22O%20Menino%20Que%20Via%20As%20Mulheres%22%20de%20José%20França.%20Poderia%20me%20informar%20sobre%20preço%20e%20formas%20de%20pagamento?" target="_blank" class="btn">COMPRAR AGORA</a>
-            </div>
-        </section>
-        
-        <footer id="contato">
-            <div class="container">
-                <div class="social-links">
-                    <a href="https://www.facebook.com/COLOQUE_SEU_FACEBOOK_AQUI" target="_blank" class="social-link"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://www.instagram.com/COLOQUE_SEU_INSTAGRAM_AQUI" target="_blank" class="social-link"><i class="fab fa-instagram"></i></a>
-                    <a href="https://wa.me/5531995370162" target="_blank" class="social-link"><i class="fab fa-whatsapp"></i></a>
-                </div>
-                <div class="footer-nav">
-                    <a onclick="scrollToSection('inicio')">Início</a>
-                    <a onclick="scrollToSection('sobre-livro')">Sobre o Livro</a>
-                    <a onclick="scrollToSection('sobre-autor')">Sobre o Autor</a>
-                    <a onclick="scrollToSection('contato')">Contato</a>
-                </div>
-                <p class="copyright">© 2025 José França - Todos os direitos reservados</p>
-            </div>
-        </footer>
-    </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 José França. Todos os direitos reservados. | Literatura Brasileira Contemporânea</p>
+    </footer>
 
     <script>
-        function scrollToSection(sectionId) {
-            const element = document.getElementById(sectionId);
-            if (element) {
-                element.scrollIntoView({ 
-                    behavior: 'smooth',
-                    block: 'start'
-                });
+        // Theme toggle functionality
+        function toggleTheme() {
+            const body = document.body;
+            const themeButton = document.querySelector('.theme-text');
+            
+            if (body.getAttribute('data-theme') === 'blue') {
+                body.removeAttribute('data-theme');
+                themeButton.textContent = 'Tema Azul';
+                localStorage.setItem('preferred-theme', 'dark');
+            } else {
+                body.setAttribute('data-theme', 'blue');
+                themeButton.textContent = 'Tema Escuro';
+                localStorage.setItem('preferred-theme', 'blue');
             }
+        }
+
+        // Load saved theme preference
+        function loadThemePreference() {
+            const savedTheme = localStorage.getItem('preferred-theme');
+            const themeButton = document.querySelector('.theme-text');
+            
+            if (savedTheme === 'blue') {
+                document.body.setAttribute('data-theme', 'blue');
+                if (themeButton) themeButton.textContent = 'Tema Escuro';
+            } else {
+                document.body.removeAttribute('data-theme');
+                if (themeButton) themeButton.textContent = 'Tema Azul';
+            }
+        }
+        // Navigation functionality
+        function showPage(pageId) {
+            // Hide all pages
+            const pages = document.querySelectorAll('.page-section');
+            pages.forEach(page => page.classList.remove('active'));
+            
+            // Show selected page
+            document.getElementById(pageId).classList.add('active');
+            
+            // Update navigation
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => link.classList.remove('active'));
+            
+            const activeLink = document.querySelector(`[data-page="${pageId}"]`);
+            if (activeLink) {
+                activeLink.classList.add('active');
+            }
+            
+            // Close mobile menu if open
+            document.querySelector('.nav-menu').classList.remove('active');
+            
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+
+        function showBookDetail(bookId) {
+            showPage(`book-${bookId}`);
+        }
+
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const navMenu = document.querySelector('.nav-menu');
+            navMenu.classList.toggle('active');
+        }
+
+        // Contact form handler
+        function handleContactForm(event) {
+            event.preventDefault();
+            alert('Obrigado pela sua mensagem! Entrarei em contato em breve.');
+            event.target.reset();
+        }
+
+        // Event listeners
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load theme preference
+            loadThemePreference();
+            
+            // Navigation clicks
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const pageId = this.getAttribute('data-page');
+                    showPage(pageId);
+                });
+            });
+
+            // Book card clicks
+            const bookCards = document.querySelectorAll('.book-card');
+            bookCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    // This is handled by onclick attributes in HTML
+                });
+            });
+        });
+
+        // SEO and Analytics placeholder functions
+        function trackPageView(page) {
+            // Placeholder for Google Analytics or other tracking
+            console.log(`Page view: ${page}`);
+        }
+
+        function trackBookClick(bookTitle) {
+            // Placeholder for tracking book interactions
+            console.log(`Book clicked: ${bookTitle}`);
         }
     </script>
 </body>
